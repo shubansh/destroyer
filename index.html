@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destroyer Esports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+    }
+
+    /* NAVBAR */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #000;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ff1e1e;
+      font-size: 26px;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #ff1e1e;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
+      url("https://images.unsplash.com/photo-1605902711622-cfb43c4437b1") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 10%;
+    }
+
+    .hero h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 48px;
+      color: #ff1e1e;
+    }
+
+    .hero p {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .hero button {
+      padding: 14px 30px;
+      border: none;
+      background: #ff1e1e;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .hero button:hover {
+      background: #e60000;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .title h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+      color: #ff1e1e;
+    }
+
+    /* ABOUT */
+    .about p {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.8;
+      color: #bbb;
+    }
+
+    /* TEAMS */
+    .teams {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .team-card {
+      background: #111;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid #222;
+      transition: 0.3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      border-color: #ff1e1e;
+    }
+
+    .team-card h3 {
+      color: #ff1e1e;
+      margin-bottom: 10px;
+    }
+
+    /* ACHIEVEMENTS */
+    .achievements ul {
+      max-width: 700px;
+      margin: auto;
+      list-style: none;
+      color: #ccc;
+    }
+
+    .achievements li {
+      margin-bottom: 15px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .achievements li::before {
+      content: "🔥";
+      position: absolute;
+      left: 0;
+    }
+
+    /* JOIN */
+    .join {
+      text-align: center;
+    }
+
+    .join p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .join a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #ff1e1e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      border-top: 1px solid #222;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>DESTROYER</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#teams">Teams</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#join">Join</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>DESTROYER ESPORTS</h2>
+    <p>We don’t play to survive. We play to destroy.</p>
+    <button onclick="location.href='#join'">JOIN THE CLAN</button>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="title">
+    <h2>ABOUT US</h2>
+  </div>
+  <p>
+    Destroyer Esports is a competitive gaming organization built to dominate
+    the esports battlefield. We focus on discipline, strategy, and raw skill.
+    From grassroots tournaments to national stages, we rise together.
+  </p>
+</section>
+
+<section id="teams">
+  <div class="title">
+    <h2>OUR TEAMS</h2>
+  </div>
+  <div class="teams">
+    <div class="team-card">
+      <h3>BGMI</h3>
+      <p>Precision. Rotation. Domination.</p>
+    </div>
+    <div class="team-card">
+      <h3>Valorant</h3>
+      <p>Aim sharp. Mind sharper.</p>
+    </div>
+    <div class="team-card">
+      <h3>Free Fire</h3>
+      <p>Fast. Fearless. Fatal.</p>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="achievements">
+  <div class="title">
+    <h2>ACHIEVEMENTS</h2>
+  </div>
+  <ul>
+    <li>Top 5 BGMI State Championship</li>
+    <li>Valorant Community Cup Winners</li>
+    <li>Multiple Scrims MVP Titles</li>
+  </ul>
+</section>
+
+<section id="join" class="join">
+  <div class="title">
+    <h2>JOIN DESTROYER</h2>
+  </div>
+  <p>Think you have what it takes? Prove it.</p>
+  <a href="mailto:destroyeresports@gmail.com">APPLY NOW</a>
+</section>
+
+<footer>
+  © 2026 Destroyer Esports. All Rights Reserved.
+</footer>
+
+</body>
+</html>
