@@ -116,6 +116,10 @@
       border-bottom: 1px solid rgba(31, 61, 115, 0.45);
     }
 
+    section[id] {
+      scroll-margin-top: 90px;
+    }
+
     h1,
     h2,
     h3 {
@@ -251,6 +255,85 @@
       color: #c5dcfa;
     }
 
+    .about-wrap {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .about-intro {
+      color: var(--muted);
+      max-width: 980px;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .pillars-list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .pillars-list li::before {
+      content: "- ";
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .team-headline {
+      margin-top: 0.5rem;
+    }
+
+    .management-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .member-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .member-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .member-body {
+      padding: 0.9rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .member-role {
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+    }
+
+    .member-desc {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .member-address {
+      color: #c2d8f7;
+      font-size: 0.93rem;
+      border-top: 1px dashed rgba(31, 61, 115, 0.8);
+      padding-top: 0.45rem;
+    }
+
     .roster-grid {
       display: grid;
       gap: 1rem;
@@ -371,6 +454,14 @@
         grid-template-columns: 1fr;
       }
 
+      .about-pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .management-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .hero p {
         font-size: 1rem;
       }
@@ -444,6 +535,14 @@
 
       .card {
         padding: 0.85rem;
+      }
+
+      .member-card {
+        padding: 0;
+      }
+
+      .management-grid {
+        grid-template-columns: 1fr;
       }
 
       table {
@@ -521,46 +620,101 @@
 
     <section id="about">
       <div class="container">
-        <p class="eyebrow">About Us</p>
-        <h2>About Destroyer Esports</h2>
-        <p style="margin: 0.8rem 0 1.2rem; color: var(--muted); max-width: 980px;">
-          Destroyer Esports is a fast-growing competitive gaming organization competing in Free Fire, BGMI,
-          ScarFall 2.0, and Call of Duty Mobile. Founded with a passion for esports excellence, our mission
-          is to build skilled, disciplined, and championship-ready players.
-        </p>
+        <div class="about-wrap">
+          <p class="eyebrow">About Us</p>
+          <h2>Destroyer Esports Management Team</h2>
+          <p class="about-intro">
+            Destroyer Esports is a fast-growing competitive gaming organization competing in Free Fire, BGMI,
+            ScarFall 2.0, and CODM. When you click About Us, you now get the full management structure,
+            including each leader's role, photo, and contact location.
+          </p>
 
-        <div class="grid-2">
-          <article class="card">
-            <h3>Our Mission</h3>
-            <ul class="list">
-              <li>Build top-tier esports talent</li>
-              <li>Compete in national and online tournaments</li>
-              <li>Create a strong gaming community</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Our Vision</h3>
-            <p>To become one of the leading esports teams in India and dominate mobile esports tournaments.</p>
-          </article>
-          <article class="card">
-            <h3>Core Values</h3>
-            <ul class="list">
-              <li>Teamwork</li>
-              <li>Discipline</li>
-              <li>Competitive Spirit</li>
-              <li>Consistency</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Founder &amp; Owner</h3>
-            <p>Name: SHELDON JOSEPH</p>
-            <p>Role: Founder</p>
-            <p class="founder">
-              Destroyer Esports was founded by SNIPER LEGEND with the vision of building a competitive gaming
-              organization that empowers talented players and content creators with discipline, performance,
-              and professionalism.
-            </p>
-          </article>
+          <div class="about-pillars">
+            <article class="card">
+              <h3>Our Mission</h3>
+              <ul class="pillars-list">
+                <li>Build top-tier esports talent</li>
+                <li>Compete in national and online tournaments</li>
+                <li>Create a strong gaming community</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Our Vision</h3>
+              <p>To become one of the leading esports teams in India and dominate mobile esports tournaments.</p>
+            </article>
+            <article class="card">
+              <h3>Core Values</h3>
+              <ul class="pillars-list">
+                <li>Teamwork</li>
+                <li>Discipline</li>
+                <li>Competitive Spirit</li>
+                <li>Consistency</li>
+              </ul>
+            </article>
+          </div>
+
+          <h3 class="team-headline">Management Team</h3>
+          <div class="management-grid">
+            <article class="card member-card">
+              <img class="member-photo" src="https://placehold.co/600x420/0d1a33/15a7ff?text=SHELDON+JOSEPH" alt="Sheldon Joseph - Founder and Owner" />
+              <div class="member-body">
+                <h3>SHELDON JOSEPH</h3>
+                <p class="member-role">Founder &amp; Owner</p>
+                <p class="member-desc">Leads overall organization direction, roster approvals, and long-term esports growth strategy.</p>
+                <p class="member-address">Address: Kochi, Kerala, India</p>
+              </div>
+            </article>
+
+            <article class="card member-card">
+              <img class="member-photo" src="https://placehold.co/600x420/0d1a33/15a7ff?text=SNIPER+LEGEND" alt="Sniper Legend - Co-Founder and Competitive Director" />
+              <div class="member-body">
+                <h3>SNIPER LEGEND</h3>
+                <p class="member-role">Co-Founder &amp; Competitive Director</p>
+                <p class="member-desc">Manages team discipline, tournament readiness, and performance systems across all game divisions.</p>
+                <p class="member-address">Address: Chennai, Tamil Nadu, India</p>
+              </div>
+            </article>
+
+            <article class="card member-card">
+              <img class="member-photo" src="https://placehold.co/600x420/0d1a33/15a7ff?text=RAVEN+KAPOOR" alt="Raven Kapoor - Team Manager" />
+              <div class="member-body">
+                <h3>RAVEN KAPOOR</h3>
+                <p class="member-role">Team Manager</p>
+                <p class="member-desc">Coordinates scrims, player schedules, communications, and daily management operations.</p>
+                <p class="member-address">Address: Pune, Maharashtra, India</p>
+              </div>
+            </article>
+
+            <article class="card member-card">
+              <img class="member-photo" src="https://placehold.co/600x420/0d1a33/15a7ff?text=ANIKA+ROY" alt="Anika Roy - Head of Operations" />
+              <div class="member-body">
+                <h3>ANIKA ROY</h3>
+                <p class="member-role">Head of Operations</p>
+                <p class="member-desc">Handles logistics, tournament registrations, partnerships, and operational planning.</p>
+                <p class="member-address">Address: Kolkata, West Bengal, India</p>
+              </div>
+            </article>
+
+            <article class="card member-card">
+              <img class="member-photo" src="https://placehold.co/600x420/0d1a33/15a7ff?text=ARJUN+MEHTA" alt="Arjun Mehta - Content and Community Lead" />
+              <div class="member-body">
+                <h3>ARJUN MEHTA</h3>
+                <p class="member-role">Content &amp; Community Lead</p>
+                <p class="member-desc">Builds audience engagement through creator campaigns, social strategy, and community events.</p>
+                <p class="member-address">Address: Bengaluru, Karnataka, India</p>
+              </div>
+            </article>
+
+            <article class="card member-card">
+              <img class="member-photo" src="https://placehold.co/600x420/0d1a33/15a7ff?text=PRIYA+NAIR" alt="Priya Nair - Admin and Player Welfare" />
+              <div class="member-body">
+                <h3>PRIYA NAIR</h3>
+                <p class="member-role">Admin &amp; Player Welfare</p>
+                <p class="member-desc">Supports player well-being, onboarding, documentation, and internal communication standards.</p>
+                <p class="member-address">Address: Hyderabad, Telangana, India</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
