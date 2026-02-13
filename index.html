@@ -3,1080 +3,777 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Destroyer Esports - Competitive gaming organization built to dominate." />
   <title>Destroyer Esports</title>
+  <meta name="description" content="Destroyer Esports official website - Free Fire, BGMI, ScarFall 2.0 and CODM competitive organization." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-:root {
-  --bg: #05070c;
-  --bg2: #101827;
-  --surface: #121826;
-  --line: #283041;
-  --txt: #eaf1ff;
-  --muted: #9ca8be;
-  --accent: #ff5a1f;
-  --accent2: #ffd166;
-  --ok: #6ef2a8;
-  --maxw: 1160px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Exo 2", sans-serif;
-  color: var(--txt);
-  background: linear-gradient(140deg, #03060b 0%, #090f1b 35%, #111d34 100%);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-h1,
-h2,
-h3,
-.logo-text {
-  font-family: "Oxanium", sans-serif;
-}
-
-.bg-layer {
-  position: fixed;
-  inset: -20%;
-  z-index: -2;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(255, 90, 31, 0.24), transparent 34%),
-    radial-gradient(circle at 85% 20%, rgba(255, 209, 102, 0.16), transparent 32%),
-    radial-gradient(circle at 50% 100%, rgba(77, 151, 255, 0.18), transparent 45%);
-  filter: blur(8px);
-}
-
-.scanline {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.06;
-  background: repeating-linear-gradient(to bottom, #ffffff 0, #ffffff 1px, transparent 2px, transparent 4px);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: clamp(0.7rem, 1.8vw, 0.9rem) clamp(0.8rem, 3vw, 1rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  backdrop-filter: blur(12px);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-weight: 700;
-}
-
-.logo-mark {
-  width: 2rem;
-  height: 2rem;
-  display: grid;
-  place-items: center;
-  border-radius: 0.45rem;
-  border: 1px solid var(--accent);
-  color: var(--accent2);
-}
-
-.nav {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav a {
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.nav a:hover,
-.nav a:focus-visible {
-  color: var(--txt);
-}
-
-.menu-btn {
-  display: none;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--txt);
-  border-radius: 0.45rem;
-  padding: 0.45rem 0.75rem;
-}
-
-main {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 clamp(0.8rem, 3vw, 1rem) 3rem;
-}
-
-.section {
-  padding: clamp(1.9rem, 4vw, 2.4rem) 0;
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(1rem, 2.4vw, 1.4rem);
-  align-items: center;
-  padding-top: clamp(3rem, 8vw, 4.5rem);
-}
-
-.kicker {
-  margin: 0;
-  color: var(--accent2);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.hero h1 {
-  margin: 0.55rem 0 0;
-  font-size: clamp(2.1rem, 7vw, 5rem);
-  line-height: 0.95;
-  text-transform: uppercase;
-}
-
-.hero p {
-  color: var(--muted);
-  font-size: 1.08rem;
-  max-width: 58ch;
-}
-
-.hero-cta {
-  display: flex;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-  margin-top: 1.3rem;
-}
-
-.hero-card {
-  border: 1px solid var(--line);
-  border-radius: 0.85rem;
-  background: linear-gradient(180deg, rgba(18, 24, 38, 0.92), rgba(10, 15, 26, 0.85));
-  padding: 1rem;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-}
-
-.hero-card h2 {
-  margin: 0;
-}
-
-.hero-card-sub {
-  margin: 0.35rem 0;
-  color: var(--muted);
-}
-
-.hero-card-game {
-  margin: 0;
-  color: var(--accent2);
-  font-weight: 700;
-}
-
-.countdown {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.4rem;
-  margin-top: 0.9rem;
-}
-
-.countdown div {
-  border: 1px solid var(--line);
-  border-radius: 0.5rem;
-  text-align: center;
-  padding: 0.55rem 0.3rem;
-  background: rgba(16, 24, 38, 0.82);
-}
-
-.countdown span {
-  display: block;
-  font-family: "Oxanium", sans-serif;
-  font-size: 1.25rem;
-  color: var(--accent2);
-}
-
-.countdown small {
-  color: var(--muted);
-}
-
-.section-head h2 {
-  margin: 0.35rem 0 0;
-  font-size: clamp(1.55rem, 4vw, 2.5rem);
-}
-
-.card-grid {
-  margin-top: 1.2rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.card {
-  border: 1px solid var(--line);
-  border-radius: 0.8rem;
-  background: linear-gradient(180deg, rgba(18, 24, 38, 0.95), rgba(13, 19, 31, 0.9));
-  padding: 1rem;
-}
-
-.card p,
-.card li {
-  color: var(--muted);
-}
-
-.card ul {
-  margin: 0.8rem 0 0;
-  padding-left: 1rem;
-}
-
-.management-form {
-  margin-top: 1rem;
-  display: grid;
-  gap: 0.8rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  align-items: end;
-}
-
-.management-form label {
-  display: grid;
-  gap: 0.35rem;
-  color: var(--muted);
-}
-
-.management-form input,
-.management-form select {
-  background: rgba(9, 14, 24, 0.95);
-  border: 1px solid var(--line);
-  color: var(--txt);
-  border-radius: 0.45rem;
-  padding: 0.65rem 0.8rem;
-  font: inherit;
-}
-
-.management-status {
-  min-height: 1.2rem;
-  color: var(--muted);
-}
-
-.management-grid {
-  margin-top: 1rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.member-card {
-  border: 1px solid var(--line);
-  border-radius: 0.8rem;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(18, 24, 38, 0.95), rgba(13, 19, 31, 0.9));
-}
-
-.member-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-}
-
-.member-meta {
-  padding: 0.85rem;
-}
-
-.member-meta p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.member-meta h3 {
-  margin: 0.25rem 0 0.4rem;
-}
-
-.member-remove {
-  margin-top: 0.7rem;
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--line);
-  border-radius: 0.45rem;
-  background: transparent;
-  color: var(--txt);
-  cursor: pointer;
-}
-
-.events-controls {
-  margin-top: 1.2rem;
-}
-
-.events-controls input {
-  width: min(500px, 100%);
-  background: rgba(11, 16, 27, 0.95);
-  border: 1px solid var(--line);
-  color: var(--txt);
-  border-radius: 0.5rem;
-  padding: 0.65rem 0.8rem;
-}
-
-.events-list {
-  margin-top: 1rem;
-  display: grid;
-  gap: 0.8rem;
-}
-
-.event-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.8rem;
-  align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 0.7rem;
-  background: rgba(17, 24, 38, 0.86);
-  padding: 0.85rem;
-}
-
-.event-item p {
-  margin: 0.15rem 0;
-}
-
-.event-meta {
-  color: var(--muted);
-}
-
-.badge {
-  border: 1px solid rgba(255, 209, 102, 0.4);
-  border-radius: 999px;
-  color: var(--accent2);
-  padding: 0.25rem 0.6rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.shop {
-  background: linear-gradient(180deg, rgba(14, 20, 32, 0.72), rgba(14, 20, 32, 0.2));
-  border: 1px solid rgba(40, 48, 65, 0.62);
-  border-radius: 0.8rem;
-  padding-inline: 1rem;
-}
-
-.product .btn {
-  margin-top: 0.75rem;
-}
-
-.cart-note {
-  margin: 1rem 0 0;
-  color: var(--muted);
-}
-
-.contact form {
-  margin-top: 1rem;
-  max-width: 640px;
-  display: grid;
-  gap: 0.8rem;
-}
-
-.contact label {
-  display: grid;
-  gap: 0.35rem;
-  color: var(--muted);
-}
-
-.contact input,
-.contact textarea {
-  background: rgba(9, 14, 24, 0.95);
-  border: 1px solid var(--line);
-  color: var(--txt);
-  border-radius: 0.45rem;
-  padding: 0.65rem 0.8rem;
-  font: inherit;
-}
-
-.form-status {
-  min-height: 1.2rem;
-}
-
-.form-status.ok {
-  color: var(--ok);
-}
-
-.form-status.err {
-  color: #ff7f7f;
-}
-
-.btn {
-  border: 1px solid transparent;
-  border-radius: 0.5rem;
-  padding: 0.68rem 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  font: inherit;
-}
-
-.btn-primary {
-  background: linear-gradient(95deg, var(--accent), #ff7a00);
-  color: #130800;
-}
-
-.btn-outline {
-  border-color: var(--line);
-  background: transparent;
-  color: var(--txt);
-}
-
-.footer {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 1rem;
-  border-top: 1px solid rgba(40, 48, 65, 0.6);
-  color: var(--muted);
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (min-width: 1600px) {
-  :root {
-    --maxw: 1320px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-card {
-    max-width: 720px;
-  }
-
-  .countdown {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 860px) {
-  .menu-btn {
-    display: inline-block;
-  }
-
-  .nav {
-    position: absolute;
-    top: 3.7rem;
-    right: 1rem;
-    width: min(92vw, 20rem);
-    flex-direction: column;
-    background: rgba(11, 16, 27, 0.97);
-    border: 1px solid var(--line);
-    border-radius: 0.55rem;
-    padding: 0.8rem;
-    opacity: 0;
-    transform: scale(0.96);
-    transform-origin: top right;
-    pointer-events: none;
-    transition: 0.2s ease;
-  }
-
-  .nav.open {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-  }
-
-  .event-item {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .logo-text {
-    font-size: 0.95rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .countdown {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .card-grid,
-  .management-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .management-form {
-    grid-template-columns: 1fr;
-  }
-
-  .management-form .btn {
-    width: 100%;
-  }
-
-  .contact form {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 420px) {
-  .logo {
-    gap: 0.45rem;
-  }
-
-  .logo-mark {
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: 0.82rem;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hero-cta {
-    gap: 0.55rem;
-  }
-}
-
-@media (max-width: 860px), (pointer: coarse) {
-  input,
-  select,
-  textarea,
-  button {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-</style>
+    :root {
+      --bg: #050913;
+      --bg-soft: #0b1428;
+      --card: #0d1a33;
+      --line: #1f3d73;
+      --primary: #15a7ff;
+      --primary-soft: #1d6dff;
+      --text: #ecf4ff;
+      --muted: #9db4d8;
+      --danger: #ef3340;
+      --ok: #17d0a8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Rajdhani", sans-serif;
+      background:
+        radial-gradient(circle at 15% -10%, rgba(21, 167, 255, 0.2), transparent 35%),
+        radial-gradient(circle at 90% 10%, rgba(29, 109, 255, 0.16), transparent 28%),
+        linear-gradient(160deg, #04070d 0%, #050913 55%, #0a1327 100%);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1150px, 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      background: rgba(5, 9, 19, 0.85);
+      border-bottom: 1px solid rgba(31, 61, 115, 0.7);
+    }
+
+    .nav-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+
+    .brand {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.08rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: var(--primary);
+      text-shadow: 0 0 14px rgba(21, 167, 255, 0.35);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid rgba(21, 167, 255, 0.45);
+      background: rgba(8, 19, 38, 0.9);
+      color: var(--text);
+      border-radius: 0.45rem;
+      padding: 0.48rem 0.65rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+      padding: 0.35rem 0.55rem;
+      border-radius: 0.35rem;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      background: rgba(29, 109, 255, 0.2);
+    }
+
+    section {
+      padding: 4.2rem 0;
+      border-bottom: 1px solid rgba(31, 61, 115, 0.45);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Orbitron", sans-serif;
+      line-height: 1.2;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero {
+      min-height: 74vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -20% -10% auto;
+      height: 320px;
+      background: radial-gradient(circle, rgba(21, 167, 255, 0.24), transparent 70%);
+      pointer-events: none;
+      animation: pulse 7s linear infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(16px); }
+      100% { transform: translateY(0); }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      letter-spacing: 1.5px;
+    }
+
+    .tagline {
+      color: #b8d9ff;
+      font-size: clamp(1rem, 2.3vw, 1.5rem);
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.6rem;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 0.5rem;
+      padding: 0.68rem 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0d7eff, #15a7ff);
+      box-shadow: 0 8px 24px rgba(21, 167, 255, 0.24);
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, #c62135, #ef3340);
+      box-shadow: 0 8px 24px rgba(239, 51, 64, 0.24);
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(13, 26, 51, 0.95), rgba(8, 19, 38, 0.95));
+      border: 1px solid var(--line);
+      border-radius: 0.8rem;
+      padding: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.03rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .list li::before {
+      content: "- ";
+      color: var(--primary);
+    }
+
+    .founder {
+      margin-top: 1rem;
+      border-left: 3px solid var(--primary);
+      padding-left: 0.9rem;
+      color: #c5dcfa;
+    }
+
+    .roster-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .roster-title {
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+      font-size: 1.05rem;
+    }
+
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.96rem;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid rgba(31, 61, 115, 0.7);
+      padding: 0.48rem 0.24rem;
+      text-align: left;
+      color: #d8e9ff;
+    }
+
+    th {
+      color: #9cc5ff;
+      font-weight: 700;
+    }
+
+    .highlights {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .highlight {
+      background: rgba(21, 167, 255, 0.08);
+      border: 1px solid rgba(21, 167, 255, 0.3);
+      border-radius: 0.65rem;
+      padding: 0.8rem;
+      color: #ddedff;
+    }
+
+    .simple-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .join-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1.05fr 1.2fr;
+      align-items: start;
+    }
+
+    .form {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .form label {
+      font-weight: 600;
+      color: #c8dfff;
+    }
+
+    .form input,
+    .form select,
+    .form textarea {
+      width: 100%;
+      border: 1px solid #21417b;
+      background: #081327;
+      color: var(--text);
+      border-radius: 0.45rem;
+      padding: 0.58rem 0.65rem;
+      font-family: inherit;
+      font-size: 0.98rem;
+    }
+
+    .form input:focus,
+    .form select:focus,
+    .form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(21, 167, 255, 0.2);
+    }
+
+    footer {
+      padding: 1.4rem 0 2.2rem;
+      color: #b8ccea;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1100px) {
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .hero {
+        min-height: 68vh;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .grid-2,
+      .roster-grid,
+      .simple-grid,
+      .join-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        background: rgba(5, 9, 19, 0.98);
+        border-bottom: 1px solid rgba(31, 61, 115, 0.8);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      nav.open {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      nav ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+        padding: 0.7rem 4vw 0.9rem;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.6rem 0.45rem;
+      }
+
+      .brand {
+        font-size: 0.95rem;
+        max-width: 68vw;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .hero {
+        min-height: 62vh;
+      }
+
+      .hero h1 {
+        letter-spacing: 1px;
+      }
+
+      .btn-row {
+        gap: 0.6rem;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+      }
+
+      .card {
+        padding: 0.85rem;
+      }
+
+      table {
+        min-width: 420px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(1150px, 94vw);
+      }
+
+      .nav-wrap {
+        padding: 0.7rem 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.7rem, 9vw, 2.4rem);
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+      }
+
+      .eyebrow {
+        font-size: 0.77rem;
+      }
+
+      th,
+      td {
+        font-size: 0.9rem;
+        padding: 0.44rem 0.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="bg-layer"></div>
-  <div class="scanline"></div>
-
-  <header class="site-header">
-    <a class="logo" href="#home" aria-label="Destroyer Esports home">
-      <span class="logo-mark">DE</span>
-      <span class="logo-text">Destroyer Esports</span>
-    </a>
-
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">Menu</button>
-
-    <nav id="main-nav" class="nav">
-      <a href="#home">Home</a>
-      <a href="#teams">Teams</a>
-      <a href="#management">Management</a>
-      <a href="#events">Events</a>
-      <a href="#shop">Shop</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">DESTROYER ESPORTS</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
+        Menu
+      </button>
+      <nav aria-label="Main" id="mainNav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#teams">Teams</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#join">Join Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main id="home">
-    <section class="hero section reveal">
-      <div class="hero-copy">
-        <p class="kicker">The New Era Of Dominance</p>
-        <h1>Destroyer Esports</h1>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <p class="eyebrow">Home Page</p>
+        <h1>DESTROYER ESPORTS</h1>
+        <p class="tagline">Dominating Free Fire, BGMI, ScarFall 2.0 &amp; CODM</p>
         <p>
-          Elite players. Tactical discipline. Relentless culture. We build championship teams and unforgettable esports moments.
+          Destroyer Esports is a competitive gaming organization focused on high-level
+          performance, teamwork, and championship victories across multiple battle royale and FPS titles.
         </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#teams">Explore Roster</a>
-          <a class="btn btn-outline" href="#events">Watch Matches</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h2>Live Match Hub</h2>
-        <p class="hero-card-sub">Next Featured Series</p>
-        <p class="hero-card-game" id="next-game">Loading...</p>
-        <div class="countdown" id="countdown" aria-live="polite">
-          <div><span id="d">0</span><small>Days</small></div>
-          <div><span id="h">0</span><small>Hours</small></div>
-          <div><span id="m">0</span><small>Minutes</small></div>
-          <div><span id="s">0</span><small>Seconds</small></div>
+        <div class="btn-row">
+          <a class="btn btn-danger" href="#join">Join The Team</a>
+          <a class="btn btn-primary" href="#achievements">View Achievements</a>
         </div>
       </div>
     </section>
 
-    <section id="teams" class="section reveal">
-      <div class="section-head">
-        <p class="kicker">Core Divisions</p>
-        <h2>Championship Rosters</h2>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Scarfall 2</h3>
-          <p>Fast macro calls, smart rotations, and high-pressure clutch control.</p>
-          <ul>
-            <li>Ranked #1 Invitational Circuit</li>
-            <li>14 Match Win Streak</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Free Fire</h3>
-          <p>Explosive zone reads and utility control in late-game circles.</p>
-          <ul>
-            <li>2 Major Grand Finals</li>
-            <li>76% Top-5 Finish Rate</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>BGMI</h3>
-          <p>Calculated drops, consistent frag output, and clean squad synergy.</p>
-          <ul>
-            <li>Regional Champions</li>
-            <li>Top 3 National Series</li>
-          </ul>
-        </article>
+    <section id="about">
+      <div class="container">
+        <p class="eyebrow">About Us</p>
+        <h2>About Destroyer Esports</h2>
+        <p style="margin: 0.8rem 0 1.2rem; color: var(--muted); max-width: 980px;">
+          Destroyer Esports is a fast-growing competitive gaming organization competing in Free Fire, BGMI,
+          ScarFall 2.0, and Call of Duty Mobile. Founded with a passion for esports excellence, our mission
+          is to build skilled, disciplined, and championship-ready players.
+        </p>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Our Mission</h3>
+            <ul class="list">
+              <li>Build top-tier esports talent</li>
+              <li>Compete in national and online tournaments</li>
+              <li>Create a strong gaming community</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Our Vision</h3>
+            <p>To become one of the leading esports teams in India and dominate mobile esports tournaments.</p>
+          </article>
+          <article class="card">
+            <h3>Core Values</h3>
+            <ul class="list">
+              <li>Teamwork</li>
+              <li>Discipline</li>
+              <li>Competitive Spirit</li>
+              <li>Consistency</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Founder &amp; Owner</h3>
+            <p>Name: SHELDON JOSEPH</p>
+            <p>Role: Founder</p>
+            <p class="founder">
+              Destroyer Esports was founded by SNIPER LEGEND with the vision of building a competitive gaming
+              organization that empowers talented players and content creators with discipline, performance,
+              and professionalism.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="management" class="section reveal">
-      <div class="section-head">
-        <p class="kicker">Leadership</p>
-        <h2>Owner, Manager, Caster Team</h2>
+    <section id="teams">
+      <div class="container">
+        <p class="eyebrow">Team Roster</p>
+        <h2>Competitive Squads</h2>
+
+        <div class="roster-grid" style="margin-top: 1rem;">
+          <article class="card">
+            <h3 class="roster-title">FREE FIRE SQUAD</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th>Player Name</th><th>Role</th><th>Position</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>DestroyerX</td><td>IGL</td><td>Captain</td></tr>
+                  <tr><td>Player 2</td><td>Rusher</td><td>Entry</td></tr>
+                  <tr><td>Player 3</td><td>Sniper</td><td>Support</td></tr>
+                  <tr><td>Player 4</td><td>All-Rounder</td><td>Backup</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="roster-title">BGMI SQUAD</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th>Player Name</th><th>Role</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Player 1</td><td>IGL</td></tr>
+                  <tr><td>Player 2</td><td>Assaulter</td></tr>
+                  <tr><td>Player 3</td><td>Sniper</td></tr>
+                  <tr><td>Player 4</td><td>Support</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="roster-title">SCARFALL 2.0 SQUAD</h3>
+            <ul class="list">
+              <li>Team Captain</li>
+              <li>Core Players</li>
+              <li>Substitute Players</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="roster-title">CODM SQUAD</h3>
+            <ul class="list">
+              <li>Objective Player</li>
+              <li>Slayer</li>
+              <li>Sniper</li>
+              <li>Support</li>
+            </ul>
+          </article>
+        </div>
       </div>
-
-      <form id="management-form" class="management-form" novalidate>
-        <label>
-          Role
-          <select name="role" required>
-            <option value="Owner">Owner</option>
-            <option value="Manager">Manager</option>
-            <option value="Caster">Caster</option>
-          </select>
-        </label>
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Enter team member name" required />
-        </label>
-        <label>
-          Image URL
-          <input type="url" name="image" placeholder="https://example.com/member.jpg" required />
-        </label>
-        <button class="btn btn-primary" type="submit">Add Member</button>
-      </form>
-      <p id="management-status" class="management-status" aria-live="polite"></p>
-
-      <div id="management-grid" class="management-grid" aria-live="polite"></div>
     </section>
 
-    <section id="events" class="section reveal">
-      <div class="section-head">
-        <p class="kicker">Schedule</p>
-        <h2>Upcoming Matches</h2>
+    <section id="achievements">
+      <div class="container">
+        <p class="eyebrow">Achievements</p>
+        <h2>Tournament Highlights</h2>
+        <div class="highlights">
+          <article class="highlight">Winner - Destroyer Winter Cup 2025</article>
+          <article class="highlight">2nd Runner Up - BGMI Online Championship</article>
+          <article class="highlight">Top 5 - Free Fire Clash Squad League</article>
+        </div>
       </div>
-
-      <div class="events-controls">
-        <input id="search" type="text" placeholder="Filter by game or opponent..." aria-label="Filter matches" />
-      </div>
-
-      <div class="events-list" id="events-list"></div>
     </section>
 
-    <section id="shop" class="section shop reveal">
-      <div class="section-head">
-        <p class="kicker">Merch</p>
-        <h2>Fan Favorites</h2>
+    <section id="events">
+      <div class="container">
+        <p class="eyebrow">Events</p>
+        <h2>Upcoming Events</h2>
+        <div class="simple-grid" style="margin-top: 1rem;">
+          <article class="card"><h3>Scrim Weekend</h3><p>Weekly multi-title internal scrims and role drills.</p></article>
+          <article class="card"><h3>Open Tryouts</h3><p>Monthly player trials for Free Fire, BGMI, and CODM.</p></article>
+          <article class="card"><h3>Community Night</h3><p>Custom rooms and Q&amp;A sessions with roster players.</p></article>
+        </div>
       </div>
-      <div class="card-grid shop-grid">
-        <article class="card product">
-          <h3>Destroyer Pro Jersey</h3>
-          <p>Official match jersey with breathable performance fabric.</p>
-          <button class="btn btn-primary" data-product="Destroyer Pro Jersey">Add to Cart</button>
-        </article>
-        <article class="card product">
-          <h3>Operator Hoodie</h3>
-          <p>Heavyweight streetwear cut with embroidered team crest.</p>
-          <button class="btn btn-primary" data-product="Operator Hoodie">Add to Cart</button>
-        </article>
-        <article class="card product">
-          <h3>DE Mousepad XL</h3>
-          <p>Low-friction control surface tuned for competitive aiming.</p>
-          <button class="btn btn-primary" data-product="DE Mousepad XL">Add to Cart</button>
-        </article>
-      </div>
-      <p class="cart-note">Cart: <span id="cart-count">0</span> items</p>
     </section>
 
-    <section id="contact" class="section contact reveal">
-      <div class="section-head">
-        <p class="kicker">Contact</p>
-        <h2>Join Destroyer</h2>
+    <section id="gallery">
+      <div class="container">
+        <p class="eyebrow">Gallery</p>
+        <h2>Team Moments</h2>
+        <div class="simple-grid" style="margin-top: 1rem;">
+          <article class="card"><h3>Bootcamp Highlights</h3><p>Training sessions and strategy reviews.</p></article>
+          <article class="card"><h3>Tournament Days</h3><p>Live stage, online brackets, and winning rounds.</p></article>
+          <article class="card"><h3>Community Clips</h3><p>Fan tournaments, creator collabs, and team reels.</p></article>
+        </div>
       </div>
-      <form id="contact-form" novalidate>
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="4" required></textarea>
-        </label>
-        <button class="btn btn-primary" type="submit">Send</button>
-        <p id="form-status" class="form-status" aria-live="polite"></p>
-      </form>
+    </section>
+
+    <section id="join">
+      <div class="container join-grid">
+        <article>
+          <p class="eyebrow">Join Us</p>
+          <h2>Join Destroyer Esports</h2>
+          <p style="margin-top: 0.75rem; color: var(--muted);">
+            Destroyer Esports is a competitive gaming organization competing in Free Fire, BGMI, ScarFall 2.0,
+            and CODM. We focus on skill, strategy, and dominance in every tournament we enter. Join us and
+            become part of the Destroyer legacy.
+          </p>
+        </article>
+
+        <form class="card form" action="#" method="post">
+          <h3>Player Registration Form</h3>
+
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+
+          <div>
+            <label for="ign">In-Game Name</label>
+            <input id="ign" name="in_game_name" type="text" required />
+          </div>
+
+          <div>
+            <label for="uid">UID</label>
+            <input id="uid" name="uid" type="text" required />
+          </div>
+
+          <div>
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="10" max="60" required />
+          </div>
+
+          <div>
+            <label for="experience">Experience</label>
+            <input id="experience" name="experience" type="text" placeholder="e.g., 2 years scrims" required />
+          </div>
+
+          <div>
+            <label for="game">Game Preference</label>
+            <select id="game" name="game_preference" required>
+              <option value="">Select a game</option>
+              <option>Free Fire</option>
+              <option>BGMI</option>
+              <option>ScarFall 2.0</option>
+              <option>CODM</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="discord">Discord</label>
+            <input id="discord" name="discord" type="text" placeholder="username#1234" required />
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit Registration</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h2>Connect With Destroyer Esports</h2>
+        <div class="grid-2" style="margin-top: 1rem;">
+          <article class="card">
+            <h3>Business &amp; Team Inquiries</h3>
+            <p>Email: destroyeresports.team@example.com</p>
+            <p>Discord: Destroyer Esports Official Server</p>
+          </article>
+          <article class="card">
+            <h3>Social Presence</h3>
+            <p>Instagram: @destroyeresports</p>
+            <p>YouTube: Destroyer Esports</p>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Destroyer Esports. All rights reserved.</p>
+  <footer>
+    <div class="container">
+      Destroyer Esports | Precision. Discipline. Dominance.
+    </div>
   </footer>
 
   <script>
-const events = [
-  { game: 'Scarfall 2', opponent: 'Iron Pulse', date: '2026-02-28T18:00:00', stage: 'Major Qualifier' },
-  { game: 'Free Fire', opponent: 'Apex Rift', date: '2026-03-03T20:30:00', stage: 'Pro League' },
-  { game: 'BGMI', opponent: 'Nova District', date: '2026-03-08T16:00:00', stage: 'Regional Finals' },
-  { game: 'Free Fire', opponent: 'Crimson Forge', date: '2026-03-14T19:00:00', stage: 'Invitational' }
-];
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+    const navLinks = mainNav.querySelectorAll("a");
 
-const menuBtn = document.querySelector('.menu-btn');
-const nav = document.querySelector('.nav');
+    function closeMenu() {
+      mainNav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
 
-if (menuBtn && nav) {
-  menuBtn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-  });
-
-  nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
-  });
-}
 
-const list = document.getElementById('events-list');
-const searchInput = document.getElementById('search');
-
-function formatDate(iso) {
-  const date = new Date(iso);
-  return new Intl.DateTimeFormat(undefined, {
-    dateStyle: 'medium',
-    timeStyle: 'short'
-  }).format(date);
-}
-
-function renderEvents(filter = '') {
-  if (!list) return;
-  const term = filter.trim().toLowerCase();
-
-  const filtered = events.filter((e) =>
-    `${e.game} ${e.opponent} ${e.stage}`.toLowerCase().includes(term)
-  );
-
-  if (!filtered.length) {
-    list.innerHTML = '<p class="event-meta">No matches found for that filter.</p>';
-    return;
-  }
-
-  list.innerHTML = filtered
-    .map(
-      (e) => `
-      <article class="event-item">
-        <div>
-          <p><strong>${e.game}</strong> vs <strong>${e.opponent}</strong></p>
-          <p class="event-meta">${formatDate(e.date)} | ${e.stage}</p>
-        </div>
-        <span class="badge">Upcoming</span>
-      </article>`
-    )
-    .join('');
-}
-
-if (searchInput) {
-  searchInput.addEventListener('input', (e) => {
-    renderEvents(e.target.value);
-  });
-}
-
-renderEvents();
-
-const nextGame = document.getElementById('next-game');
-const ids = {
-  d: document.getElementById('d'),
-  h: document.getElementById('h'),
-  m: document.getElementById('m'),
-  s: document.getElementById('s')
-};
-
-const nearestEvent = [...events].sort((a, b) => new Date(a.date) - new Date(b.date))[0];
-
-if (nearestEvent && nextGame) {
-  nextGame.textContent = `${nearestEvent.game} vs ${nearestEvent.opponent}`;
-}
-
-function tickCountdown() {
-  if (!nearestEvent) return;
-  const now = new Date();
-  const target = new Date(nearestEvent.date);
-  const diff = target.getTime() - now.getTime();
-
-  if (diff <= 0) {
-    Object.values(ids).forEach((el) => {
-      if (el) el.textContent = '0';
+    navLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
-    return;
-  }
 
-  const day = 24 * 60 * 60 * 1000;
-  const hour = 60 * 60 * 1000;
-  const min = 60 * 1000;
-
-  const days = Math.floor(diff / day);
-  const hours = Math.floor((diff % day) / hour);
-  const minutes = Math.floor((diff % hour) / min);
-  const seconds = Math.floor((diff % min) / 1000);
-
-  if (ids.d) ids.d.textContent = String(days);
-  if (ids.h) ids.h.textContent = String(hours);
-  if (ids.m) ids.m.textContent = String(minutes);
-  if (ids.s) ids.s.textContent = String(seconds);
-}
-
-tickCountdown();
-setInterval(tickCountdown, 1000);
-
-const cartCountEl = document.getElementById('cart-count');
-let cartCount = 0;
-document.querySelectorAll('button[data-product]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    cartCount += 1;
-    if (cartCountEl) cartCountEl.textContent = String(cartCount);
-    btn.textContent = 'Added';
-    setTimeout(() => {
-      btn.textContent = 'Add to Cart';
-    }, 1000);
-  });
-});
-
-const managementKey = 'destroyer_management';
-const defaultManagement = [
-  {
-    role: 'Owner',
-    name: 'Add Owner Name',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80'
-  },
-  {
-    role: 'Manager',
-    name: 'Add Manager Name',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80'
-  },
-  {
-    role: 'Caster',
-    name: 'Add Caster Name',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80'
-  }
-];
-
-const managementForm = document.getElementById('management-form');
-const managementGrid = document.getElementById('management-grid');
-const managementStatus = document.getElementById('management-status');
-let managementMembers = [];
-
-function loadManagement() {
-  try {
-    const raw = localStorage.getItem(managementKey);
-    if (!raw) return [...defaultManagement];
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [...defaultManagement];
-    return parsed;
-  } catch {
-    return [...defaultManagement];
-  }
-}
-
-function saveManagement() {
-  localStorage.setItem(managementKey, JSON.stringify(managementMembers));
-}
-
-function renderManagement() {
-  if (!managementGrid) return;
-  managementGrid.innerHTML = '';
-
-  managementMembers.forEach((member, index) => {
-    const card = document.createElement('article');
-    card.className = 'member-card';
-
-    const img = document.createElement('img');
-    img.src = member.image;
-    img.alt = `${member.role} ${member.name}`;
-    img.loading = 'lazy';
-
-    const meta = document.createElement('div');
-    meta.className = 'member-meta';
-
-    const role = document.createElement('p');
-    role.textContent = member.role;
-
-    const name = document.createElement('h3');
-    name.textContent = member.name;
-
-    const remove = document.createElement('button');
-    remove.type = 'button';
-    remove.className = 'member-remove';
-    remove.textContent = 'Remove';
-    remove.dataset.index = String(index);
-
-    meta.appendChild(role);
-    meta.appendChild(name);
-    meta.appendChild(remove);
-
-    card.appendChild(img);
-    card.appendChild(meta);
-
-    managementGrid.appendChild(card);
-  });
-}
-
-if (managementGrid) {
-  managementMembers = loadManagement();
-  renderManagement();
-
-  managementGrid.addEventListener('click', (e) => {
-    const target = e.target;
-    if (!(target instanceof HTMLButtonElement)) return;
-    const idx = Number(target.dataset.index);
-    if (Number.isNaN(idx)) return;
-
-    managementMembers.splice(idx, 1);
-    saveManagement();
-    renderManagement();
-
-    if (managementStatus) {
-      managementStatus.textContent = 'Member removed.';
-    }
-  });
-}
-
-if (managementForm) {
-  managementForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(managementForm);
-    const role = String(formData.get('role') || '').trim();
-    const name = String(formData.get('name') || '').trim();
-    const image = String(formData.get('image') || '').trim();
-
-    let validImageUrl = false;
-    try {
-      const url = new URL(image);
-      validImageUrl = url.protocol === 'http:' || url.protocol === 'https:';
-    } catch {
-      validImageUrl = false;
-    }
-
-    if (!role || !name || !validImageUrl) {
-      if (managementStatus) {
-        managementStatus.textContent = 'Add a valid role, name, and image URL.';
-      }
-      return;
-    }
-
-    managementMembers.unshift({ role, name, image });
-    saveManagement();
-    renderManagement();
-    managementForm.reset();
-
-    if (managementStatus) {
-      managementStatus.textContent = `${role} added successfully.`;
-    }
-  });
-}
-
-const form = document.getElementById('contact-form');
-const status = document.getElementById('form-status');
-
-if (form && status) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const name = String(formData.get('name') || '').trim();
-    const email = String(formData.get('email') || '').trim();
-    const message = String(formData.get('message') || '').trim();
-
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-    if (!name || !emailOk || message.length < 8) {
-      status.textContent = 'Please fill a valid name, email, and message (8+ chars).';
-      status.className = 'form-status err';
-      return;
-    }
-
-    status.textContent = `Thanks ${name}, your message has been queued.`;
-    status.className = 'form-status ok';
-    form.reset();
-  });
-}
-
-const year = document.getElementById('year');
-if (year) {
-  year.textContent = String(new Date().getFullYear());
-}
-
-const revealObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) {
+        closeMenu();
       }
     });
-  },
-  { threshold: 0.15 }
-);
-
-document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-</script>
+  </script>
 </body>
 </html>
-
