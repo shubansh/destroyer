@@ -20,6 +20,10 @@
       --muted: #9db4d8;
       --danger: #ef3340;
       --ok: #17d0a8;
+      --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.08rem);
+      --fs-h1: clamp(2.5rem, 1.8rem + 3.2vw, 4.4rem);
+      --fs-h2: clamp(1.9rem, 1.4rem + 1.6vw, 3rem);
+      --fs-h3: clamp(1.2rem, 1.02rem + 0.65vw, 1.55rem);
     }
 
     * {
@@ -39,7 +43,8 @@
         radial-gradient(circle at 90% 10%, rgba(29, 109, 255, 0.16), transparent 28%),
         linear-gradient(160deg, #04070d 0%, #050913 55%, #0a1327 100%);
       color: var(--text);
-      line-height: 1.45;
+      line-height: 1.6;
+      font-size: var(--fs-body);
     }
 
     a {
@@ -112,8 +117,18 @@
     }
 
     section {
-      padding: 4.2rem 0;
-      border-bottom: 1px solid rgba(31, 61, 115, 0.45);
+      padding: 3.6rem 0;
+    }
+
+    section + section {
+      margin-top: 1rem;
+    }
+
+    section:not(.hero) .container {
+      background: linear-gradient(180deg, rgba(10, 22, 43, 0.75), rgba(7, 18, 37, 0.75));
+      border: 1px solid rgba(31, 61, 115, 0.55);
+      border-radius: 1rem;
+      padding: clamp(1rem, 1.4vw, 1.45rem);
     }
 
     section[id] {
@@ -124,7 +139,21 @@
     h2,
     h3 {
       font-family: "Orbitron", sans-serif;
-      line-height: 1.2;
+      line-height: 1.18;
+      letter-spacing: 0.2px;
+    }
+
+    h1 {
+      font-size: var(--fs-h1);
+    }
+
+    h2 {
+      font-size: var(--fs-h2);
+      margin-bottom: 0.25rem;
+    }
+
+    h3 {
+      font-size: var(--fs-h3);
     }
 
     .eyebrow {
@@ -133,6 +162,7 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 0.8rem;
+      font-size: clamp(0.78rem, 0.72rem + 0.2vw, 0.92rem);
     }
 
     .hero {
@@ -166,13 +196,12 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 6vw, 4rem);
       letter-spacing: 1.5px;
     }
 
     .tagline {
       color: #b8d9ff;
-      font-size: clamp(1rem, 2.3vw, 1.5rem);
+      font-size: clamp(1.06rem, 0.95rem + 0.8vw, 1.45rem);
       font-weight: 600;
     }
 
@@ -180,7 +209,7 @@
       color: var(--muted);
       max-width: 760px;
       margin: 0 auto;
-      font-size: 1.08rem;
+      font-size: clamp(1rem, 0.92rem + 0.4vw, 1.14rem);
     }
 
     .btn-row {
@@ -228,7 +257,6 @@
     }
 
     .card h3 {
-      font-size: 1.03rem;
       margin-bottom: 0.45rem;
     }
 
@@ -334,57 +362,6 @@
       padding-top: 0.45rem;
     }
 
-    .roster-grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .roster-title {
-      color: var(--primary);
-      margin-bottom: 0.7rem;
-      font-size: 1.05rem;
-    }
-
-    .table-scroll {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.96rem;
-    }
-
-    th,
-    td {
-      border-bottom: 1px solid rgba(31, 61, 115, 0.7);
-      padding: 0.48rem 0.24rem;
-      text-align: left;
-      color: #d8e9ff;
-    }
-
-    th {
-      color: #9cc5ff;
-      font-weight: 700;
-    }
-
-    .highlights {
-      display: grid;
-      gap: 0.6rem;
-      margin-top: 0.8rem;
-    }
-
-    .highlight {
-      background: rgba(21, 167, 255, 0.08);
-      border: 1px solid rgba(21, 167, 255, 0.3);
-      border-radius: 0.65rem;
-      padding: 0.8rem;
-      color: #ddedff;
-    }
-
     .simple-grid {
       display: grid;
       gap: 1rem;
@@ -398,6 +375,123 @@
       align-items: start;
     }
 
+    .creators-wrap {
+      display: grid;
+      gap: 1rem;
+      max-width: 980px;
+    }
+
+    .creators-head {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: clamp(0.98rem, 0.93rem + 0.25vw, 1.06rem);
+      line-height: 1.55;
+    }
+
+    .creator-carousel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 0.8rem;
+      background: linear-gradient(180deg, rgba(13, 26, 51, 0.95), rgba(8, 19, 38, 0.95));
+      touch-action: pan-y;
+    }
+
+    .creator-track {
+      display: flex;
+      transition: transform 0.35s ease;
+      will-change: transform;
+    }
+
+    .creator-slide {
+      min-width: 100%;
+      padding: 1.1rem;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .creator-image {
+      width: 100%;
+      height: 205px;
+      border-radius: 0.7rem;
+      object-fit: cover;
+      border: 1px solid rgba(31, 61, 115, 0.7);
+    }
+
+    .creator-name {
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.1rem, 1rem + 0.8vw, 1.45rem);
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+
+    .creator-meta {
+      color: var(--muted);
+      display: grid;
+      gap: 0.35rem;
+      font-size: clamp(0.95rem, 0.92rem + 0.2vw, 1.02rem);
+      margin-top: 0.25rem;
+    }
+
+    .creator-value {
+      color: #d8e9ff;
+      font-weight: 700;
+    }
+
+    .creator-aka {
+      color: #b9d8ff;
+      font-size: clamp(0.9rem, 0.88rem + 0.2vw, 0.98rem);
+      margin-top: 0.1rem;
+    }
+
+    .creator-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-top: 0.35rem;
+    }
+
+    .creator-btn {
+      border: 1px solid rgba(21, 167, 255, 0.5);
+      color: var(--text);
+      background: rgba(9, 23, 45, 0.9);
+      border-radius: 0.45rem;
+      padding: 0.45rem 0.75rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .creator-btn:hover {
+      background: rgba(21, 167, 255, 0.2);
+    }
+
+    .creator-dots {
+      display: flex;
+      gap: 0.45rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .creator-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(157, 180, 216, 0.5);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .creator-dot.active {
+      background: var(--primary);
+      box-shadow: 0 0 0 2px rgba(21, 167, 255, 0.2);
+    }
+
     .form {
       display: grid;
       gap: 0.65rem;
@@ -406,6 +500,7 @@
     .form label {
       font-weight: 600;
       color: #c8dfff;
+      font-size: 0.98rem;
     }
 
     .form input,
@@ -438,7 +533,7 @@
 
     @media (max-width: 1100px) {
       section {
-        padding: 3.5rem 0;
+        padding: 3rem 0;
       }
 
       .hero {
@@ -448,7 +543,6 @@
 
     @media (max-width: 900px) {
       .grid-2,
-      .roster-grid,
       .simple-grid,
       .join-grid {
         grid-template-columns: 1fr;
@@ -460,6 +554,11 @@
 
       .management-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .creator-slide {
+        grid-template-columns: 210px 1fr;
+        gap: 0.9rem;
       }
 
       .hero p {
@@ -512,7 +611,7 @@
       }
 
       section {
-        padding: 3rem 0;
+        padding: 2.45rem 0;
       }
 
       .hero {
@@ -545,9 +644,19 @@
         grid-template-columns: 1fr;
       }
 
-      table {
-        min-width: 420px;
+      .creator-slide {
+        grid-template-columns: 1fr;
+        padding: 0.9rem;
       }
+
+      .creator-image {
+        height: 195px;
+      }
+
+      .creator-controls {
+        flex-direction: column;
+      }
+
     }
 
     @media (max-width: 480px) {
@@ -560,22 +669,40 @@
       }
 
       .hero h1 {
-        font-size: clamp(1.7rem, 9vw, 2.4rem);
+        font-size: clamp(2.05rem, 7.4vw, 2.85rem);
       }
 
       .tagline {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
 
       .eyebrow {
-        font-size: 0.77rem;
+        font-size: 0.8rem;
       }
 
-      th,
-      td {
-        font-size: 0.9rem;
-        padding: 0.44rem 0.2rem;
+      .creators-wrap {
+        gap: 0.85rem;
       }
+
+      .creators-head {
+        font-size: 0.93rem;
+        line-height: 1.5;
+      }
+
+      .creator-name {
+        font-size: 1.05rem;
+      }
+
+      .creator-aka,
+      .creator-meta {
+        font-size: 0.9rem;
+      }
+
+      .creator-btn {
+        width: 100%;
+        max-width: 260px;
+      }
+
     }
   </style>
 </head>
@@ -590,10 +717,9 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Us</a></li>
-          <li><a href="#teams">Teams</a></li>
-          <li><a href="#achievements">Achievements</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#creators">Creators</a></li>
           <li><a href="#join">Join Us</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -613,7 +739,7 @@
         </p>
         <div class="btn-row">
           <a class="btn btn-danger" href="#join">Join The Team</a>
-          <a class="btn btn-primary" href="#achievements">View Achievements</a>
+          <a class="btn btn-primary" href="#events">View Events</a>
         </div>
       </div>
     </section>
@@ -719,80 +845,6 @@
       </div>
     </section>
 
-    <section id="teams">
-      <div class="container">
-        <p class="eyebrow">Team Roster</p>
-        <h2>Competitive Squads</h2>
-
-        <div class="roster-grid" style="margin-top: 1rem;">
-          <article class="card">
-            <h3 class="roster-title">FREE FIRE SQUAD</h3>
-            <div class="table-scroll">
-              <table>
-                <thead>
-                  <tr><th>Player Name</th><th>Role</th><th>Position</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>DestroyerX</td><td>IGL</td><td>Captain</td></tr>
-                  <tr><td>Player 2</td><td>Rusher</td><td>Entry</td></tr>
-                  <tr><td>Player 3</td><td>Sniper</td><td>Support</td></tr>
-                  <tr><td>Player 4</td><td>All-Rounder</td><td>Backup</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3 class="roster-title">BGMI SQUAD</h3>
-            <div class="table-scroll">
-              <table>
-                <thead>
-                  <tr><th>Player Name</th><th>Role</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>Player 1</td><td>IGL</td></tr>
-                  <tr><td>Player 2</td><td>Assaulter</td></tr>
-                  <tr><td>Player 3</td><td>Sniper</td></tr>
-                  <tr><td>Player 4</td><td>Support</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3 class="roster-title">SCARFALL 2.0 SQUAD</h3>
-            <ul class="list">
-              <li>Team Captain</li>
-              <li>Core Players</li>
-              <li>Substitute Players</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3 class="roster-title">CODM SQUAD</h3>
-            <ul class="list">
-              <li>Objective Player</li>
-              <li>Slayer</li>
-              <li>Sniper</li>
-              <li>Support</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="achievements">
-      <div class="container">
-        <p class="eyebrow">Achievements</p>
-        <h2>Tournament Highlights</h2>
-        <div class="highlights">
-          <article class="highlight">Winner - Destroyer Winter Cup 2025</article>
-          <article class="highlight">2nd Runner Up - BGMI Online Championship</article>
-          <article class="highlight">Top 5 - Free Fire Clash Squad League</article>
-        </div>
-      </div>
-    </section>
-
     <section id="events">
       <div class="container">
         <p class="eyebrow">Events</p>
@@ -813,6 +865,27 @@
           <article class="card"><h3>Bootcamp Highlights</h3><p>Training sessions and strategy reviews.</p></article>
           <article class="card"><h3>Tournament Days</h3><p>Live stage, online brackets, and winning rounds.</p></article>
           <article class="card"><h3>Community Clips</h3><p>Fan tournaments, creator collabs, and team reels.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="creators">
+      <div class="container creators-wrap">
+        <p class="eyebrow">Creator Partners</p>
+        <h2>Partner Creators With Destroyer Esports</h2>
+        <p class="creators-head">
+          Swipe left/right to view creator partners. To add more creators in future, only update the
+          <code>creatorData</code> list in script with name, image, platform, and followers.
+        </p>
+
+        <div class="creator-carousel" id="creatorCarousel">
+          <div class="creator-track" id="creatorTrack"></div>
+        </div>
+
+        <div class="creator-controls">
+          <button type="button" class="creator-btn" id="creatorPrev">Previous</button>
+          <div class="creator-dots" id="creatorDots" aria-label="Creator Slides"></div>
+          <button type="button" class="creator-btn" id="creatorNext">Next</button>
         </div>
       </div>
     </section>
@@ -928,6 +1001,106 @@
         closeMenu();
       }
     });
+
+    const creatorData = [
+      {
+        name: "ADTIYA",
+        aka: "BIPIN EDITZ",
+        platform: "YouTube",
+        followers: "128K Followers",
+        image: "https://placehold.co/800x520/0d1a33/15a7ff?text=ADTIYA+AKA+BIPIN+EDITZ"
+      },
+      {
+        name: "SNIPER LEGEND",
+        aka: "SHELDON JOSEPH",
+        platform: "Instagram",
+        followers: "84K Followers",
+        image: "https://placehold.co/800x520/0d1a33/15a7ff?text=SNIPER+LEGEND"
+      },
+      {
+        name: "RAVEN LIVE",
+        aka: "RAVEN KAPOOR",
+        platform: "YouTube Gaming",
+        followers: "61K Followers",
+        image: "https://placehold.co/800x520/0d1a33/15a7ff?text=RAVEN+LIVE"
+      },
+      {
+        name: "ANIKA PLAYS",
+        aka: "ANIKA ROY",
+        platform: "Instagram Reels",
+        followers: "39K Followers",
+        image: "https://placehold.co/800x520/0d1a33/15a7ff?text=ANIKA+PLAYS"
+      }
+    ];
+
+    const creatorTrack = document.getElementById("creatorTrack");
+    const creatorDots = document.getElementById("creatorDots");
+    const creatorPrev = document.getElementById("creatorPrev");
+    const creatorNext = document.getElementById("creatorNext");
+    const creatorCarousel = document.getElementById("creatorCarousel");
+    let creatorIndex = 0;
+    let touchStartX = 0;
+
+    function renderCreators() {
+      creatorTrack.innerHTML = creatorData
+        .map((creator) => `
+          <article class="creator-slide">
+            <img class="creator-image" src="${creator.image}" alt="${creator.name} creator profile image" />
+            <div>
+              <h3 class="creator-name">${creator.name}</h3>
+              <p class="creator-aka">AKA: <span class="creator-value">${creator.aka || "N/A"}</span></p>
+              <div class="creator-meta">
+                <p>Platform: <span class="creator-value">${creator.platform}</span></p>
+                <p>Followers: <span class="creator-value">${creator.followers}</span></p>
+              </div>
+            </div>
+          </article>
+        `)
+        .join("");
+
+      creatorDots.innerHTML = creatorData
+        .map((_, idx) => `<button type="button" class="creator-dot${idx === 0 ? " active" : ""}" data-index="${idx}" aria-label="Go to creator ${idx + 1}"></button>`)
+        .join("");
+    }
+
+    function setCreatorSlide(index) {
+      const max = creatorData.length - 1;
+      if (index < 0) creatorIndex = max;
+      else if (index > max) creatorIndex = 0;
+      else creatorIndex = index;
+
+      creatorTrack.style.transform = `translateX(-${creatorIndex * 100}%)`;
+      const dots = creatorDots.querySelectorAll(".creator-dot");
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === creatorIndex);
+      });
+    }
+
+    renderCreators();
+    setCreatorSlide(0);
+
+    creatorPrev.addEventListener("click", () => setCreatorSlide(creatorIndex - 1));
+    creatorNext.addEventListener("click", () => setCreatorSlide(creatorIndex + 1));
+
+    creatorDots.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target.classList.contains("creator-dot")) {
+        setCreatorSlide(Number(target.dataset.index));
+      }
+    });
+
+    creatorCarousel.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    creatorCarousel.addEventListener("touchend", (event) => {
+      const touchEndX = event.changedTouches[0].screenX;
+      const delta = touchStartX - touchEndX;
+      if (Math.abs(delta) > 40) {
+        if (delta > 0) setCreatorSlide(creatorIndex + 1);
+        else setCreatorSlide(creatorIndex - 1);
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>
